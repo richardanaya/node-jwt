@@ -10,7 +10,7 @@ vows.describe('JWT').addBatch({
             var secret = "secret"
             var encoded_payload = jwt.encode(payload, secret);
             var decoded_payload = jwt.decode(encoded_payload, secret);
-            assert.equal(payload, decoded_payload);
+            assert.deepEqual(payload, decoded_payload);
         }
     }
 }).export(module); // Export the Suite
