@@ -46,6 +46,10 @@ var JWT = {
 		return crypto.createHmac(methods[method], key).update(msg).digest('binary');
 	},
 	urlsafeB64Decode: function(str) {
+        //add = until string is appropriate length
+        while(str.length%4 != 0 ) {
+            str += "=";
+        }
         return urlsafeDecode64(str);
 	},
 	urlsafeB64Encode: function(str) {
